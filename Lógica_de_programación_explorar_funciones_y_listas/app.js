@@ -15,7 +15,24 @@ titulo.innerHTML = 'Adivina el numero secreto'
 let parrafo = document.querySelector('p')
 parrafo.innerHTML = 'Escoge un numero del 1 al 10'
 
-function intentoUsuario() {
-  alert('Funciona bien el botón')
+
+let numeroSecreto = numeroRandom()
+
+//Funcion que se ejecuta cuando el usuario da click en el boton Intentar
+function verificarIntento() {
+
+  let numeroUsuario = document.getElementById('numeroUsuario').value
+  console.log(numeroUsuario)
+  let frase = 'holaaaa, esto sucede despues de clickear el boton'
+  reasignarTexto('h1', frase)
 }
 
+function reasignarTexto(etiqueta, cambioEtiqueta) {
+  let titulo = document.querySelector(etiqueta)
+  titulo.innerHTML = cambioEtiqueta
+}
+
+//Funcion para generar el numero aleatorio
+function numeroRandom() {
+  return Math.floor(Math.random() * 10) + 1
+}
