@@ -16,19 +16,27 @@ let parrafo = document.querySelector('p')
 parrafo.innerHTML = 'Escoge un numero del 1 al 10'
 
 
-let numeroSecreto = numeroRandom()
+let numeroSecreto = 10
+let intentos = 1
 
 //Funcion que se ejecuta cuando el usuario da click en el boton Intentar
 function verificarIntento() {
-  let random = numeroRandom()
   let numeroUsuario = parseInt(document.getElementById('numeroUsuario').value)
+  console.log(numeroSecreto)
   //Validacion
-  if(numeroUsuario === random) {
+  if(numeroUsuario === numeroSecreto) {
     reasignarTexto('h1', 'Felicidades')
-    reasignarTexto('p', `El numero ${numeroUsuario} es igual al numero random (${random})`)
+    reasignarTexto('p', `Solo necesitaste ${intentos} ${(intentos != 1) ? 'intentos':'intento'}`)
   } else {
-    reasignarTexto('h1', 'Sigue intentando')
-    reasignarTexto('p', `Casi lo haces, pero el numero ${numeroUsuario} no es igual al de la maquina`)
+    if(numeroUsuario > numeroSecreto) {
+      reasignarTexto('h1', 'Sigue intentando')
+      reasignarTexto('p', `Casi lo haces, pero el numero ${numeroUsuario} es mayor al de la maquina`)
+    } else {
+      reasignarTexto('h1', 'Sigue intentando')
+      reasignarTexto('p', `Casi lo haces, pero el numero ${numeroUsuario} es menor al de la maquina`)
+    }
+    intentos ++
+    console.log(intentos)
   }
 }
 
