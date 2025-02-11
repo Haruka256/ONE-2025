@@ -16,7 +16,7 @@ let parrafo = document.querySelector('p')
 parrafo.innerHTML = 'Escoge un numero del 1 al 10'
 
 
-let numeroSecreto = 10
+let numeroSecreto = numeroRandom()
 let intentos = 1
 
 //Funcion que se ejecuta cuando el usuario da click en el boton Intentar
@@ -27,6 +27,7 @@ function verificarIntento() {
   if(numeroUsuario === numeroSecreto) {
     reasignarTexto('h1', 'Felicidades')
     reasignarTexto('p', `Solo necesitaste ${intentos} ${(intentos != 1) ? 'intentos':'intento'}`)
+    document.getElementById('reiniciar').removeAttribute('disabled')
   } else {
     if(numeroUsuario > numeroSecreto) {
       reasignarTexto('h1', 'Sigue intentando')
@@ -36,13 +37,17 @@ function verificarIntento() {
       reasignarTexto('p', `Casi lo haces, pero el numero ${numeroUsuario} es menor al de la maquina`)
     }
     intentos ++
-    console.log(intentos)
+    limpiarInput()
   }
 }
 
 function reasignarTexto(etiqueta, contenidoEtiqueta) {
   let titulo = document.querySelector(etiqueta)
   titulo.innerHTML = contenidoEtiqueta
+}
+
+function limpiarInput() {
+  document.getElementById('numeroUsuario').value = ''
 }
 
 //Funcion para generar el numero aleatorio
