@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio 3</title>
+</head>
+<body>
+  <script>
+    //1. Crea una función que calcule el índice de masa corporal (IMC) de una persona a partir de su altura en metros y peso en kilogramos, que se recibirán como parámetros.
+    function IMC(pesoKG, alturaMts) {
+      return pesoKG/(Math.pow(alturaMts, 2))
+    }
+
+    //2.Crea una función que calcule el valor del factorial de un número pasado como parámetro.
+    function calcularFactorial(num) {
+    let factorial = 1;
+    for (let i = 2; i <= num; i++) {
+      factorial *= i;
+    }
+    return factorial;
+  }
+
+  //3. Crea una función que convierta un valor en dólares, pasado como parámetro, y devuelva el valor equivalente en reales(moneda brasileña,si deseas puedes hacerlo con el valor del dólar en tu país). Para esto, considera la cotización del dólar igual a R$4,80.
+  function dolaresToPesos(dolar) {
+    let peso = 20.4
+    return dolar * peso
+  }
+
+  //4. Crea una función que muestre en pantalla el área y el perímetro de una sala rectangular, utilizando la altura y la anchura que se proporcionarán como parámetros.
+    function areaAndPerimeter(altura, anchura) {
+    let area = (altura * anchura)
+    let perimeter = (altura + anchura) * 2
+    return alert(`Propiedades de la Sala: 
+    Area: ${area}
+    Perimetro: ${perimeter}`)
+  }
+  </script>
+</body>
+</html>
