@@ -15,7 +15,7 @@ titulo.innerHTML = 'Adivina el numero secreto'
 let parrafo = document.querySelector('p')
 parrafo.innerHTML = 'Escoge un numero del 1 al 10'
 
-
+//Logica del juego
 let numeroSecreto = numeroRandom()
 let intentos = 1
 
@@ -39,6 +39,15 @@ function verificarIntento() {
     intentos ++
     limpiarInput()
   }
+}
+
+function nuevoJuego() {
+  limpiarInput()
+  intentos = 1
+  numeroSecreto = numeroRandom()
+  reasignarTexto('h1', 'Adivina el numero secreto')
+  reasignarTexto('p', 'Escoge un numero del 1 al 10')
+  document.getElementById('reiniciar').disabled = true
 }
 
 function reasignarTexto(etiqueta, contenidoEtiqueta) {
